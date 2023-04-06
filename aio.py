@@ -8,12 +8,15 @@ import os
 import subprocess
 
 def generate_key():
-    if os.path.exists("private_key.txt") or os.path.exists("public_key.txt"):
-        print("Keys already exist.")
-        return
+    if os.path.exists("private_key.txt") and os.path.exists("public_key.txt"):
+        os.remove("private_key.txt")
+        os.remove("public_key.txt")
+        print("Old keys deleted.")
     private_key=subprocess.check_output(["openssl", "genpkey", "-algorithm", "RSA", "-out", "private_key.txt"])
     public_key=subprocess.check_output(["openssl", "pkey", "-in", "private_key.txt", "-pubout", "-out", "public_key.txt"])
     print("Keys generated successfully.")
+
+        
 
 def encrypt_message():
     if not os.path.exists("public_key.txt"):
@@ -43,7 +46,7 @@ def decrypt_message():
 
 
 def menu():
-    print("\nPython3 Open-SSL Crypto (c) J~Net 2023\n")
+    print("\nPython3 Open-SSL 115 Char Secure Crypto (c) J~Net 2023\n")
     print("1. Generate a new key")
     print("2. Encrypt message")
     print("3. Decrypt message")
