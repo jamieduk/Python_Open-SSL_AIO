@@ -41,9 +41,12 @@ def decrypt_message():
     if not os.path.exists("encrypted.txt"):
         print("Encrypted message not found.")
         return
-    decrypted=subprocess.check_output(["openssl", "rsautl", "-decrypt", "-inkey", "private_key.txt", "-in", "encrypted.txt"])
-    print("Decrypted message: ", decrypted.decode())
-
+    decrypted = subprocess.check_output(["openssl", "rsautl", "-decrypt", "-inkey", "private_key.txt", "-in", "encrypted.txt"])
+    decrypted_message = decrypted.decode()
+    print("Decrypted message:", decrypted_message)
+    with open("decrypted.txt", "w") as f:
+        f.write(decrypted_message)
+    print("Decrypted message written to decrypted.txt.")
 
 def menu():
     print("\nPython3 Open-SSL 115 Char Secure Crypto (c) J~Net 2023\n")
