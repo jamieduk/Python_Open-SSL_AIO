@@ -1,4 +1,22 @@
 Python3 Open-SSL Crpto (c) J~Net 2023
 
 
+
+git clone https://github.com/jamieduk/Python_Open-SSL_AIO.git
+
+
+Make executale and run
+
 ./aio.py
+
+
+See Menu!
+
+
+~~~~~
+
+This reads message.txt if exists! if not it prompts for message to encrypt!
+
+It creates a key pair and encrypted.txt and can decrypt if you have the private key!
+
+You should swap public keys and keep your private keys safe for decryption!
