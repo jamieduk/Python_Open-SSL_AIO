@@ -1,0 +1,6 @@
+
+openssl genpkey -algorithm RSA -out private_key.txt -pkeyopt rsa_keygen_bits:5000
+
+
+
+Note that larger key sizes require more computation and may take longer to generate. They may also require more memory to use in cryptographic operations. Additionally, key sizes larger than 4096 bits are not widely supported and may not be compatible with all cryptographic software.
